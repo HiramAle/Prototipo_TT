@@ -1,0 +1,23 @@
+{
+  "tmx_path": "../Data/TMX/TMX/MapTest.tmx",
+  "bg_image_path": "../Assets/Scenes/test_map.png",
+  "layers": {
+    "floor": 0,
+    "main": 1
+  },
+  "interactive": {
+    "scene":{
+
+    },
+    "House_Door": {
+      "type": "scene",
+      "action": "level1",
+      "class": "TestScene"
+    },
+    "add": {
+      "type": "add",
+      "action": "5",
+      "class": "cables"
+    }
+  }
+}

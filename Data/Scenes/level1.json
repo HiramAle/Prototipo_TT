@@ -1,0 +1,20 @@
+{
+  "color": "#EA5E5E",
+  "triggers": {
+    "door": {
+      "level": "level2",
+      "key": "pygame.K_SPACE"
+    },
+    "table": {
+      "level": "level3",
+      "key": "pygame.K_e"
+    }
+  },
+
+  "data": {
+    "option1": "",
+    "option2": ""
+  }
+
+}
+
