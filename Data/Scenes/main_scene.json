@@ -1,23 +1,26 @@
 {
+  "class": "MainScene",
   "tmx_path": "../Data/TMX/TMX/MapTest.tmx",
   "bg_image_path": "../Assets/Scenes/test_map.png",
   "layers": {
-    "floor": 0,
-    "main": 1
+    "Background": {
+      "index": -1,
+      "collision": false
+    },
+    "Floor": {
+      "index": 0,
+      "collision": false
+    },
+    "main": {
+      "index": 1,
+      "collision": false
+    }
   },
   "interactive": {
-    "scene":{
-
-    },
     "House_Door": {
       "type": "scene",
-      "action": "level1",
-      "class": "TestScene"
-    },
-    "add": {
-      "type": "add",
-      "action": "5",
-      "class": "cables"
+      "action": "house",
+      "class": ""
     }
   }
 }

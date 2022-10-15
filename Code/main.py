@@ -1,7 +1,7 @@
 import pygame
 from settings import load_settings
 import ctypes
-from scene import SceneManager, TestScene
+from scene import SceneManager
 
 # Avoid DPI virtualization
 ctypes.windll.user32.SetProcessDPIAware()

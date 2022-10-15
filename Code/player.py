@@ -4,10 +4,10 @@ from sprites import Interaction
 
 
 class Player(Actor):
-    def __init__(self, position: tuple, enter_level: callable, collision_sprites: pygame.sprite.Group,
-                 interaction_sprites: pygame.sprite.Group,
-                 *groups: pygame.sprite.Group):
-        super().__init__(position, "Player", collision_sprites, *groups)
+    def __init__(self, position: tuple, manager, z: int, collision_sprites: pygame.sprite.Group,
+                 interaction_sprites: pygame.sprite.Group, *groups: pygame.sprite.Group):
+        super().__init__(position, "Player", z, collision_sprites, *groups)
+        self.hitbox = self.rect.copy().inflate(-20, -64)
         self.load_data()
         self.xp = 0
         self.level = 0
@@ -20,9 +20,9 @@ class Player(Actor):
         }
         self.interactionSprites = interaction_sprites
         self.import_assets()
-        self.enterLevel = enter_level
+        self.manager = manager
 
-    def input(self):
+    def input(self, event: pygame.event.Event):
         keys = pygame.key.get_pressed()
         # Vertical
         if keys[pygame.K_w]:
@@ -43,20 +43,21 @@ class Player(Actor):
             self.status = "right_walk"
         else:
             self.direction.x = 0
-
-        if keys[pygame.K_SPACE]:
-            collided_interaction_sprites = pygame.sprite.spritecollide(self, self.interactionSprites, False)
-            if collided_interaction_sprites:
-                collided_interaction_sprites: [Interaction]
-                if collided_interaction_sprites[0].type == "scene":
-                    self.enterLevel(collided_interaction_sprites[0].action)
-                if collided_interaction_sprites[0].type == "add":
-                    self.itemInventory["money"] += collided_interaction_sprites[0].action
-
-
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                collided_interaction_sprites = pygame.sprite.spritecollide(self, self.interactionSprites, False)
+                if collided_interaction_sprites:
+                    collided_interaction_sprites: [Interaction]
+                    print(collided_interaction_sprites[0].type)
+                    if collided_interaction_sprites[0].type == "scene":
+                        self.manager.enter_playable_scene(collided_interaction_sprites[0].action)
+                    if collided_interaction_sprites[0].type == "add":
+                        self.itemInventory["money"] += collided_interaction_sprites[0].action
+                    if collided_interaction_sprites[0].type == "exit":
+                        self.manager.exit_level()
 
     def update(self, dt: float):
-        self.input()
+        # self.input()
         self.set_status()
         self.move(dt)
         self.animate(dt)

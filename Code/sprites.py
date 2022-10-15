@@ -19,3 +19,9 @@ class Interaction(Generic):
         self.name = name
         self.type = in_type
         self.action = action
+
+
+class Tile(Generic):
+    def __init__(self, surface: pygame.Surface, position: tuple, z: int, *groups: pygame.sprite.Group):
+        super().__init__(position, surface, z, *groups)
+        self.hitbox = self.rect.copy()

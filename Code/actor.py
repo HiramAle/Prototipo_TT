@@ -6,7 +6,7 @@ from constants import TILE_SIZE
 
 
 class Actor(pygame.sprite.Sprite):
-    def __init__(self, position: tuple, name: str, collision_sprites: pygame.sprite.Group,
+    def __init__(self, position: tuple, name: str, z: int, collision_sprites: pygame.sprite.Group,
                  *groups: pygame.sprite.Group):
         super().__init__(*groups)
         # Data
@@ -27,7 +27,7 @@ class Actor(pygame.sprite.Sprite):
         self.hitbox.midbottom = self.rect.midbottom
         self.direction = pygame.math.Vector2()
         self.baseSpeed = 300
-        self.z = 1
+        self.z = z
         # Collision
         self.collisionSprites = collision_sprites
 

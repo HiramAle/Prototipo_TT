@@ -1,0 +1,49 @@
+{
+  "class": "PlayableScene",
+  "tmx_path": "../Data/TMX/TMX/FinalHouse.tmx",
+  "bg_image_path": "../Assets/Scenes/test_map.png",
+  "layers": {
+    "Background": {
+      "index": -1,
+      "collision": false
+    },
+    "Floor": {
+      "index": 0,
+      "collision": false
+    },
+    "HouseBottom": {
+      "index": 1,
+      "collision": false
+    },
+    "Walls": {
+      "index": 2,
+      "collision": true
+    },
+    "main": {
+      "index": 3,
+      "collision": false
+    },
+    "Furniture": {
+      "index": 3,
+      "collision": true
+    },
+    "HouseTop": {
+      "index": 4,
+      "collision": false
+    }
+  },
+  "interactive": {
+    "scene": {
+    },
+    "Cable_Craft": {
+      "type": "scene",
+      "action": "cable",
+      "class": "TestScene"
+    },
+    "Door_Exit": {
+      "type": "exit",
+      "action": "5",
+      "class": "cables"
+    }
+  }
+}

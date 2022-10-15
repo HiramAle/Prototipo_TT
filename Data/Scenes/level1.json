@@ -10,11 +10,15 @@
       "key": "pygame.K_e"
     }
   },
-
   "data": {
     "option1": "",
     "option2": ""
-  }
-
+  },
+  "tmx_path": "",
+  "layers": {
+    "floor": 0,
+    "main": 1
+  },
+  "bg_image_path": "../Assets/Scenes/test_map.png"
 }
 
