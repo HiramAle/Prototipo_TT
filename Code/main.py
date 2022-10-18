@@ -1,7 +1,7 @@
 import pygame
 from settings import load_settings
 import ctypes
-from scene import SceneManager
+from scene import SceneManager, MainScene
 
 # Avoid DPI virtualization
 ctypes.windll.user32.SetProcessDPIAware()
@@ -18,6 +18,7 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
         self.sceneManager = SceneManager(self.gameCanvas)
+        self.sceneManager.enter_scene("main_menu")
 
     def render(self):
         self.display.blit(self.gameCanvas, (0, 0))

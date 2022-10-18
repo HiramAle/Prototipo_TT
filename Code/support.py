@@ -1,11 +1,9 @@
 import pygame
 
 
-def import_cut_graphics(path: str, sprite_width: int, sprite_height: int, flip=False) -> list:
+def import_cut_graphics(path: str, sprite_width: int, sprite_height: int) -> list:
     pygame.init()
     image = pygame.image.load(path).convert_alpha()
-    if flip:
-        image = pygame.transform.flip(image, True, False)
     tile_num_x = image.get_size()[0] // sprite_width
     tile_num_y = image.get_size()[1] // sprite_height
     cut_images = []

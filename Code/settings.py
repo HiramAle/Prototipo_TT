@@ -14,7 +14,6 @@ HEIGHT = 720
 
 
 def load_settings():
-    print(SETTINGS_PATH)
     if not exists(SETTINGS_PATH):
         create_settings_file()
     config = ConfigParser()

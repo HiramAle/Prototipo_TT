@@ -1,0 +1,16 @@
+{
+  "class": "Menu",
+  "tmx_path": "",
+  "bg_image_path": "",
+  "buttons": {
+    "Play": {
+      "action": "main_scene"
+    },
+    "Options": {
+      "action": "main_scene"
+    },
+    "Exit": {
+      "action": "exit"
+    }
+  }
+}

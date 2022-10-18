@@ -37,7 +37,7 @@
     },
     "Cable_Craft": {
       "type": "scene",
-      "action": "cable",
+      "action": "cable_scene",
       "class": "TestScene"
     },
     "Door_Exit": {

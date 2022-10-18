@@ -1,0 +1,37 @@
+{
+  "class": "CableScene",
+  "bg_image_path": "../Assets/Scenes/test_map.png",
+  "standards": {
+    "T568A": [
+      "sGreen",
+      "pGreen",
+      "sOrange",
+      "pBlue",
+      "sBlue",
+      "pOrange",
+      "sBrown",
+      "pBrown"
+    ],
+    "T568B": [
+      "sGreen",
+      "pGreen",
+      "sOrange",
+      "pBlue",
+      "sBlue",
+      "pOrange",
+      "sBrown",
+      "pBrown"
+    ]
+  },
+  "layers": {
+    "Background": {
+      "index": -1,
+      "collision": false
+    },
+    "main": {
+      "index": 1,
+      "collision": false
+    }
+  },
+  "cable_sprites_path": "../Assets/Scenes/CableScene/Cable_"
+}

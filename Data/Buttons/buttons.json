@@ -1,0 +1,18 @@
+{
+  "sprite_sheet_path": "../Assets/Menu/buttonsx4.png",
+  "width": 200,
+  "height": 72,
+  "colors": [
+    "white",
+    "white2",
+    "grey",
+    "black",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple",
+    "pink",
+    "red"
+  ]
+}

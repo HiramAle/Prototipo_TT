@@ -1,11 +1,14 @@
 import pygame
 from actor import Actor
 from sprites import Interaction
+from typing import Optional
 
 
 class Player(Actor):
-    def __init__(self, position: tuple, manager, z: int, collision_sprites: pygame.sprite.Group,
+    def __init__(self, position: Optional[tuple], manager, z: int, collision_sprites: pygame.sprite.Group,
                  interaction_sprites: pygame.sprite.Group, *groups: pygame.sprite.Group):
+        if not position:
+            position = (0, 0)
         super().__init__(position, "Player", z, collision_sprites, *groups)
         self.hitbox = self.rect.copy().inflate(-20, -64)
         self.load_data()
@@ -21,6 +24,9 @@ class Player(Actor):
         self.interactionSprites = interaction_sprites
         self.import_assets()
         self.manager = manager
+
+    def add_item(self, item_name: str, amount: int):
+        self.itemInventory[item_name] += amount
 
     def input(self, event: pygame.event.Event):
         keys = pygame.key.get_pressed()
@@ -48,11 +54,8 @@ class Player(Actor):
                 collided_interaction_sprites = pygame.sprite.spritecollide(self, self.interactionSprites, False)
                 if collided_interaction_sprites:
                     collided_interaction_sprites: [Interaction]
-                    print(collided_interaction_sprites[0].type)
                     if collided_interaction_sprites[0].type == "scene":
-                        self.manager.enter_playable_scene(collided_interaction_sprites[0].action)
-                    if collided_interaction_sprites[0].type == "add":
-                        self.itemInventory["money"] += collided_interaction_sprites[0].action
+                        self.manager.enter_scene(collided_interaction_sprites[0].action)
                     if collided_interaction_sprites[0].type == "exit":
                         self.manager.exit_level()
 
