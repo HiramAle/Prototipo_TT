@@ -301,21 +301,21 @@ class SceneManager:
         self.start = True
         self.enter = True
 
-    def fade(self):
-        self.color += self.speed
-        if self.color <= 0:
-            self.speed *= -1
-            self.color = 0
-            self.change_scene()
-        if self.color > 255:
-            self.color = 255
-            self.speed = -4
-            self.start = False
-            self.enter = False
-            self.exit = False
-
-        self.image.fill((self.color, self.color, self.color))
-        self.display.blit(self.image, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
+    # def fade(self):
+    #     self.color += self.speed
+    #     if self.color <= 0:
+    #         self.speed *= -1
+    #         self.color = 0
+    #         self.change_scene()
+    #     if self.color > 255:
+    #         self.color = 255
+    #         self.speed = -4
+    #         self.start = False
+    #         self.enter = False
+    #         self.exit = False
+    #
+    #     self.image.fill((self.color, self.color, self.color))
+    #     self.display.blit(self.image, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
 
     def exit_level(self):
         self.start = True
@@ -324,8 +324,8 @@ class SceneManager:
     def render(self, dt: float):
         if self.sceneStack:
             self.sceneStack[-1].render(dt)
-        if self.start:
-            self.fade()
+        # if self.start:
+        #     self.fade()
 
     def event_loop(self, event: pygame.event.Event):
         if self.sceneStack:
